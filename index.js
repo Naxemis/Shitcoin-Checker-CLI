@@ -12,8 +12,8 @@ const rl = readline.createInterface({
 async function checkDexScreener(tokenAddress) {
     try {
         // response from a request, that was send to DEX Screener API, about token adress given by user
-        const response = await axios.get('https://api.dexscreener.com/token-pairs/v1/solana/' + tokenAddress);
-        
+        const response = await axios.get(`https://api.dexscreener.com/token-pairs/v1/solana/${tokenAddress}`);
+
         if (response.data[0]) {
             // info about token that will be displayed
             const tokenName = response.data[0].baseToken.name; // f.e NodeCoin
@@ -25,7 +25,7 @@ async function checkDexScreener(tokenAddress) {
             const url = response.data[0].url; // link to DEX Screener website of this token 
 
             // displaying all info
-            console.log(clc.blue("DEX Screener:"));
+            console.log(clc.blue("DEX Screener:")); // tittle
             console.log("Token Name: " + clc.yellow(tokenName));
             console.log("Token Symbol: " + clc.yellow(tokenSymbol));
             console.log("Token Address: " + clc.yellow(tokenAddress));
@@ -35,20 +35,12 @@ async function checkDexScreener(tokenAddress) {
             console.log("URL: " + clc.magenta.underline(url));
         }
         else {
-            errorMessage("No data found about this token.")
+            errorMessage("DEX Screener - No data found about this token.")
         }
     } 
     catch (error) {
-        errorMessage("Encountered some problem while processing the token.")
+        errorMessage("DEX Screener - Encountered some problem while processing the token.")
     }
-}
-
-async function checkRugCheck(tokenAddress) {
-
-}
-
-async function checkBubblemaps(tokenAddress) {
-
 }
 
 function errorMessage(message) {
@@ -58,8 +50,6 @@ function errorMessage(message) {
 function startPorgram() {
     rl.question('Enter token address: ', (tokenAddress) => {
         checkDexScreener(tokenAddress);
-        checkRugCheck(tokenAddress);
-        checkBubblemaps(tokenAddress);
         rl.close();
     })
 }
