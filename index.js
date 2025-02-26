@@ -43,6 +43,14 @@ async function checkDexScreener(tokenAddress) {
     }
 }
 
+async function checkRugCheck(tokenAddress) {
+
+}
+
+async function checkBubblemaps(tokenAddress) {
+
+}
+
 function errorMessage(message) {
     console.log(clc.red('ERROR: ' + message));
 }
@@ -50,6 +58,8 @@ function errorMessage(message) {
 function startPorgram() {
     rl.question('Enter token address: ', (tokenAddress) => {
         checkDexScreener(tokenAddress);
+        checkRugCheck(tokenAddress);
+        checkBubblemaps(tokenAddress);
         rl.close();
     })
 }
