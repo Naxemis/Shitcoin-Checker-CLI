@@ -1,0 +1,2 @@
+# Shitcoin-Checker-CLI
+ 
