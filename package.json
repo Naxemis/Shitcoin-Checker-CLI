@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/Naxemis/Shitcoin-Checker-CLI/issues"
   },
-  "homepage": "https://github.com/Naxemis/Shitcoin-Checker-CLI#readme"
+  "homepage": "https://github.com/Naxemis/Shitcoin-Checker-CLI#readme",
+  "dependencies": {
+    "axios": "^1.8.1",
+    "cli-color": "^2.0.4"
+  }
 }
